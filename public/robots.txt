@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
+Allow: /profile.jpg
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.jpeg
+Allow: /*.webp
+
+# Image crawling
+User-agent: Googlebot-Image
+Allow: /
 
 Sitemap: https://muhammad-danial-malik.dev/sitemap.xml

@@ -84,7 +84,6 @@ html {
 
 /* Animations */
 @keyframes gradient {
-
   0%,
   100% {
     background-size: 200% 200%;
@@ -111,6 +110,15 @@ html {
   animation: gradient 6s ease infinite;
 }
 
-.animate-gradient {
-  animation: gradient 6s ease infinite;
+/* Favicon and Image SEO Enhancement */
+link[rel="icon"],
+link[rel="apple-touch-icon"] {
+  border-radius: 50% !important;
+  overflow: hidden;
+}
+
+/* Profile image styling for better SEO visibility */
+img[src*="profile"] {
+  border-radius: 50%;
+  object-fit: cover;
 }
