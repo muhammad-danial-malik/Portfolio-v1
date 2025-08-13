@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, Heart, ArrowUp } from 'lucide-react'
 
@@ -18,8 +17,8 @@ const Footer = () => {
 
       <div className="relative">
         {/* Main Footer Content */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 items-start">
             
             {/* Brand Section */}
             <motion.div
@@ -129,8 +128,8 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-border/30">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
               
               {/* Copyright */}
               <motion.div

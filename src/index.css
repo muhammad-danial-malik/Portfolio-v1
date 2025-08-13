@@ -64,6 +64,24 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Mobile viewport height fix */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Ensure proper spacing on very small screens */
+@media screen and (max-height: 640px) and (max-width: 640px) {
+  .hero-scroll-indicator {
+    bottom: 0.75rem !important;
+  }
+
+  .hero-content {
+    padding-bottom: 3rem !important;
+  }
+}
+
 /* Animations */
 @keyframes gradient {
 

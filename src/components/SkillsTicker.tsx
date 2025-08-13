@@ -20,23 +20,23 @@ const SkillsTicker = () => {
   const duplicatedSkills = [...skills, ...skills]
 
   return (
-    <div className="w-full py-16 bg-gradient-to-r from-background/50 via-muted/5 to-background/50 overflow-hidden relative">
+    <div className="w-full py-12 sm:py-16 bg-gradient-to-r from-background/50 via-muted/5 to-background/50 overflow-hidden relative">
       {/* Section Title */}
-      <div className="text-center mb-8">
+      <div className="text-center mb-6 sm:mb-8">
         <motion.h3 
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-lg font-semibold text-muted-foreground/80 tracking-wide"
+          className="text-sm xs:text-base sm:text-lg font-semibold text-muted-foreground/80 tracking-wide px-4"
         >
           TECHNOLOGIES & TOOLS
         </motion.h3>
       </div>
 
       {/* Gradient overlays for smooth fade effect */}
-      <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-background via-background/95 to-transparent z-10" />
-      <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-background via-background/95 to-transparent z-10" />
+      <div className="absolute left-0 top-0 h-full w-16 sm:w-24 md:w-32 bg-gradient-to-r from-background via-background/95 to-transparent z-10" />
+      <div className="absolute right-0 top-0 h-full w-16 sm:w-24 md:w-32 bg-gradient-to-l from-background via-background/95 to-transparent z-10" />
       
       {/* Subtle animated background pattern */}
       <div className="absolute inset-0 opacity-20">
@@ -45,7 +45,7 @@ const SkillsTicker = () => {
       
       <div className="relative flex justify-center">
         <motion.div
-          className="flex items-center gap-8 whitespace-nowrap"
+          className="flex items-center gap-4 sm:gap-6 md:gap-8 whitespace-nowrap"
           animate={{
             x: ['0%', '-50%']
           }}
@@ -58,24 +58,24 @@ const SkillsTicker = () => {
           {duplicatedSkills.map((skill, index) => (
             <motion.div
               key={`${skill.name}-${index}`}
-              className="flex items-center gap-4 px-6 py-3 bg-card/70 backdrop-blur-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group cursor-pointer"
+              className="flex items-center gap-2 sm:gap-3 md:gap-4 px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 bg-card/70 backdrop-blur-sm rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group cursor-pointer"
               whileHover={{ 
                 scale: 1.06,
                 y: -3,
               }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className={`flex items-center justify-center w-10 h-10 rounded-lg border ${skill.bgColor} group-hover:scale-110 transition-all duration-300`}>
-                <span className={`text-sm font-bold ${skill.textColor}`}>
+              <div className={`flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-md sm:rounded-lg border ${skill.bgColor} group-hover:scale-110 transition-all duration-300`}>
+                <span className={`text-xs sm:text-sm font-bold ${skill.textColor}`}>
                   {skill.icon}
                 </span>
               </div>
-              <span className="text-base font-medium text-foreground/90 group-hover:text-primary transition-colors duration-300">
+              <span className="text-xs xs:text-sm sm:text-base font-medium text-foreground/90 group-hover:text-primary transition-colors duration-300">
                 {skill.name}
               </span>
               
               {/* Subtle hover glow effect */}
-              <div className="absolute inset-0 rounded-xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 rounded-lg sm:rounded-xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
           ))}
         </motion.div>

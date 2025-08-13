@@ -82,19 +82,19 @@ const Projects = () => {
     : projects.filter(project => project.category === activeFilter)
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl xs:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
             Featured <span className="text-primary">Projects</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 px-4 sm:px-0">
             A collection of projects showcasing my skills in full-stack development, modern frameworks, and user experience design
           </p>
           
@@ -121,7 +121,7 @@ const Projects = () => {
         <motion.div 
           key={`${activeFilter}-grid`}
           layout
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           {filteredProjects.map((project, index) => (
             <motion.div
@@ -170,7 +170,7 @@ const Projects = () => {
                       className="border-2 font-semibold transition-all duration-200 group"
                     >
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4 mr-2 rotate-0 group-hover:rotate-12 transition-transform duration-200" />
+                        <Github className="h-4 w-4 mr-2" />
                         Code
                       </a>
                     </Button>

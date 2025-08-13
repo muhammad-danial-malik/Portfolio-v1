@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Code2, Database, Globe, Smartphone, Server, GitBranch } from 'lucide-react'
+import { Code2, Database, Globe, Server } from 'lucide-react'
 
 const Skills = () => {
   const skills = [
@@ -11,19 +11,19 @@ const Skills = () => {
   ]
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl xs:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
             Technical <span className="text-primary">Skills</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
             Expertise in modern web technologies and development practices
           </p>
         </motion.div>

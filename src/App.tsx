@@ -6,6 +6,7 @@ import About from './components/About'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
 import SkillsTicker from './components/SkillsTicker'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Contact />
           </section>
         </main>
+        <Footer />
       </div>
     </ThemeProvider>
   )

@@ -3,19 +3,19 @@ import { motion } from 'framer-motion'
 
 const About: React.FC = () => {
   return (
-    <section className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+    <section className="pt-16 sm:pt-20 md:pt-24 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl xs:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
             About <span className="text-primary">Me</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
             Passionate Full Stack Developer with expertise in modern technologies and a love for creating exceptional digital experiences.
           </p>
         </motion.div>
@@ -25,7 +25,7 @@ const About: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-12 items-center"
+          className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center"
         >
           <div className="space-y-6">
             <p className="text-muted-foreground leading-relaxed">
