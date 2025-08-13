@@ -35,15 +35,20 @@ const About: React.FC = () => {
               I love tackling complex problems and building scalable solutions that make a real impact. When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or sharing knowledge with the developer community.
             </p>
           </div>
-          <div className="relative">
-            <div className="w-full h-64 rounded-lg overflow-hidden shadow-lg">
+          <div className="relative group">
+            <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/5 to-primary/20">
               <img 
                 src="/profile.jpg" 
-                alt="Muhammad Danial working on a project"
-                className="w-full h-full object-cover"
+                alt="Muhammad Danial - Full Stack Developer"
+                className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 ring-1 ring-primary/10 rounded-xl"></div>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent rounded-lg"></div>
+            
+            {/* Decorative elements */}
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/20 transition-colors duration-500"></div>
+            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/5 rounded-full blur-lg group-hover:bg-primary/10 transition-colors duration-500"></div>
           </div>
         </motion.div>
       </div>
