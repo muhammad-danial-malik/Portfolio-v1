@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Homepage with all sections -->
   <url>
     <loc>https://muhammad-danial-malik.dev/</loc>
-    <lastmod>2025-01-13</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-08-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://muhammad-danial-malik.dev/profile.jpg</image:loc>
+      <image:caption>Muhammad Danial Malik - Full Stack Developer</image:caption>
+      <image:title>Muhammad Danial Malik Profile</image:title>
+    </image:image>
   </url>
 </urlset>

@@ -5,9 +5,18 @@ Allow: /*.jpg
 Allow: /*.png
 Allow: /*.jpeg
 Allow: /*.webp
+Crawl-delay: 1
 
 # Image crawling
 User-agent: Googlebot-Image
 Allow: /
 
+# Specific bot permissions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
 Sitemap: https://muhammad-danial-malik.dev/sitemap.xml
