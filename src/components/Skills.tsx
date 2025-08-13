@@ -4,12 +4,10 @@ import { Code2, Database, Globe, Smartphone, Server, GitBranch } from 'lucide-re
 const Skills = () => {
   const skills = [
     { name: "Frontend Development", icon: Globe, level: 95 },
-    { name: "React & Next.js", icon: Code2, level: 90 },
+    { name: "React.js", icon: Code2, level: 90 },
     { name: "TypeScript", icon: Code2, level: 88 },
     { name: "Backend Development", icon: Server, level: 85 },
-    { name: "Database Design", icon: Database, level: 82 },
-    { name: "Mobile Development", icon: Smartphone, level: 78 },
-    { name: "DevOps & CI/CD", icon: GitBranch, level: 75 },
+    { name: "Database Design", icon: Database, level: 82 }
   ]
 
   return (
