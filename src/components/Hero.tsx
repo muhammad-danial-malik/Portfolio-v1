@@ -69,30 +69,30 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col xs:flex-row items-center justify-center gap-2 xs:gap-3 mb-6 sm:mb-8"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6 sm:mb-8"
           >
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-[#333333] font-semibold px-4 xs:px-6 py-2 xs:py-2.5 text-sm xs:text-base group w-full xs:w-auto"
+              className="bg-primary hover:bg-primary/90 text-[#333333] font-semibold px-6 py-2.5 text-base group w-full sm:w-auto"
               onClick={() => {
                 const element = document.querySelector('#contact')
                 element?.scrollIntoView({ behavior: 'smooth' })
               }}
             >
               Get In Touch
-              <Mail className="ml-1 xs:ml-2 h-3 w-3 xs:h-4 xs:w-4 group-hover:translate-x-1 transition-transform duration-200" />
+              <Mail className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="border-2 font-semibold px-4 xs:px-6 py-2 xs:py-2.5 text-sm xs:text-base group w-full xs:w-auto"
+              className="border-2 font-semibold px-6 py-2.5 text-base group w-full sm:w-auto"
               onClick={() => {
                 const element = document.querySelector('#projects')
                 element?.scrollIntoView({ behavior: 'smooth' })
               }}
             >
               View Projects
-              <Code2 className="ml-1 xs:ml-2 h-3 w-3 xs:h-4 xs:w-4 group-hover:rotate-12 transition-transform duration-200" />
+              <Code2 className="ml-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-200" />
             </Button>
           </motion.div>
 
