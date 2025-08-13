@@ -5,7 +5,6 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
-import SkillsTicker from './components/SkillsTicker'
 import Footer from './components/Footer'
 
 function App() {
@@ -17,9 +16,6 @@ function App() {
           <section id="home">
             <Hero />
           </section>
-          
-          {/* Skills Ticker - Perfect placement after hero */}
-          <SkillsTicker />
           
           <section id="about">
             <About />

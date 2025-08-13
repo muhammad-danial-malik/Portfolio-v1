@@ -20,26 +20,22 @@ const SkillsTicker = () => {
   const duplicatedSkills = [...skills, ...skills]
 
   return (
-    <div className="w-full py-12 sm:py-16 bg-gradient-to-r from-background/50 via-muted/5 to-background/50 overflow-hidden relative">
+    <div className="w-full py-8 sm:py-12 overflow-hidden relative">
       {/* Section Title */}
-      <div className="text-center mb-6 sm:mb-8">
+      <div className="text-center mb-4 sm:mb-6">
         <motion.h3 
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-sm xs:text-base sm:text-lg font-semibold text-muted-foreground/80 tracking-wide px-4"
+          className="text-sm xs:text-base sm:text-lg font-semibold text-muted-foreground/70 tracking-wide px-4"
         >
           TECHNOLOGIES & TOOLS
         </motion.h3>
       </div>
 
-      {/* Gradient overlays for smooth fade effect */}
-      <div className="absolute left-0 top-0 h-full w-16 sm:w-24 md:w-32 bg-gradient-to-r from-background via-background/95 to-transparent z-10" />
-      <div className="absolute right-0 top-0 h-full w-16 sm:w-24 md:w-32 bg-gradient-to-l from-background via-background/95 to-transparent z-10" />
-      
       {/* Subtle animated background pattern */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(var(--primary),0.02)_50%,transparent_75%)] bg-[length:30px_30px] animate-[move_25s_linear_infinite]" />
       </div>
       
@@ -50,7 +46,7 @@ const SkillsTicker = () => {
             x: ['0%', '-50%']
           }}
           transition={{
-            duration: 30,
+            duration: 40,
             repeat: Infinity,
             ease: 'linear'
           }}
