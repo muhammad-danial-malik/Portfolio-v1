@@ -1,52 +1,73 @@
-import { Brain, Cpu } from "./Icons";
-import { aiSkills, techSkills } from "../constants";
+import { motion } from 'framer-motion'
+import { Code2, Database, Globe, Smartphone, Server, GitBranch } from 'lucide-react'
 
 const Skills = () => {
+  const skills = [
+    { name: "Frontend Development", icon: Globe, level: 95 },
+    { name: "React & Next.js", icon: Code2, level: 90 },
+    { name: "TypeScript", icon: Code2, level: 88 },
+    { name: "Backend Development", icon: Server, level: 85 },
+    { name: "Database Design", icon: Database, level: 82 },
+    { name: "Mobile Development", icon: Smartphone, level: 78 },
+    { name: "DevOps & CI/CD", icon: GitBranch, level: 75 },
+  ]
+
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-black to-purple-900/20">
-      <h2 className="text-3xl font-bold text-center mb-12 text-purple-400">
-        NEURAL PATHWAYS
-      </h2>
-      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="space-y-6">
-          <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <Brain className="w-5 h-5" size={20} /> AI & ML
-          </h3>
-          <div className="space-y-3">
-            {aiSkills.map((skill, index) => (
-              <div key={index} className="relative">
-                <div className="h-2 bg-purple-900/30 rounded">
-                  <div
-                    className="h-full bg-gradient-to-r from-cyan-400 to-purple-500 rounded"
-                    style={{ width: `${skill.level}%` }}
-                  />
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Technical <span className="text-primary">Skills</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Expertise in modern web technologies and development practices
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skills.map((skill, index) => {
+            const IconComponent = skill.icon
+            return (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
+              >
+                <div className="flex items-center mb-4">
+                  <IconComponent className="h-8 w-8 text-primary mr-3" />
+                  <h3 className="text-lg font-semibold">{skill.name}</h3>
                 </div>
-                <span className="text-sm mt-1 inline-block">{skill.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="space-y-6">
-          <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <Cpu className="w-5 h-5" size={20} /> Tech Stack
-          </h3>
-          <div className="space-y-3">
-            {techSkills.map((skill, index) => (
-              <div key={index} className="relative">
-                <div className="h-2 bg-purple-900/30 rounded">
-                  <div
-                    className="h-full bg-gradient-to-r from-cyan-400 to-purple-500 rounded"
-                    style={{ width: `${skill.level}%` }}
-                  />
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Proficiency</span>
+                    <span className="text-primary font-medium">{skill.level}%</span>
+                  </div>
+                  <div className="w-full bg-muted rounded-full h-2">
+                    <motion.div
+                      className="bg-gradient-to-r from-primary to-primary/80 h-2 rounded-full"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
+                      viewport={{ once: true }}
+                    />
+                  </div>
                 </div>
-                <span className="text-sm mt-1 inline-block">{skill.name}</span>
-              </div>
-            ))}
-          </div>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Skills;
+export default Skills

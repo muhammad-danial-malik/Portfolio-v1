@@ -17,8 +17,14 @@ const Hero = () => {
           className="mb-8"
         >
           <div className="relative inline-block">
-            <Code2 className="w-20 h-20 text-primary animate-pulse" />
-            <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl animate-pulse" />
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
+              <img 
+                src="/profile.jpg" 
+                alt="Muhammad Danial - Full Stack Developer"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute inset-0 bg-primary/10 rounded-full blur-xl animate-pulse" />
           </div>
         </motion.div>
 
@@ -29,9 +35,18 @@ const Hero = () => {
           className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
         >
           <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent animate-gradient">
-            Full Stack Developer
+            Muhammad Danial
           </span>
         </motion.h1>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 text-muted-foreground"
+        >
+          Full Stack Developer
+        </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -39,8 +54,8 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed"
         >
-          Crafting exceptional digital experiences with modern technologies. 
-          Specialized in React, TypeScript, and Node.js development with a passion for clean, scalable code.
+          Passionate about creating exceptional digital experiences with modern technologies. 
+          Specialized in React, TypeScript, Node.js, and building scalable web applications that make a difference.
         </motion.p>
 
         <motion.div
@@ -78,10 +93,10 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex items-center justify-center space-x-6"
+          className="flex items-center justify-center space-x-6 mb-16"
         >
           <a
-            href="https://github.com"
+            href="https://github.com/muhammad-danial-malik"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors duration-200 group"
@@ -90,7 +105,7 @@ const Hero = () => {
             <Github className="h-6 w-6 group-hover:scale-110 transition-transform duration-200" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/muhammad-danial-malik"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors duration-200 group"
@@ -99,7 +114,7 @@ const Hero = () => {
             <Linkedin className="h-6 w-6 group-hover:scale-110 transition-transform duration-200" />
           </a>
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:contact@muhammad-danial-malik.dev"
             className="text-muted-foreground hover:text-primary transition-colors duration-200 group"
             aria-label="Email Contact"
           >

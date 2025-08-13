@@ -1,39 +1,199 @@
-import { projects } from "../constants";
-import { ExternalLink } from "./Icons";
+import { motion } from 'framer-motion'
+import { ExternalLink, Github, Globe } from 'lucide-react'
+import { Button } from './ui/Button'
+import { useState } from 'react'
+
+type ProjectCategory = 'All' | 'Frontend' | 'Backend' | 'Full Stack'
+
+interface Project {
+  title: string
+  description: string
+  tech: string[]
+  demo: string
+  github: string
+  image: string
+  category: ProjectCategory
+}
 
 const Projects = () => {
+  const [activeFilter, setActiveFilter] = useState<ProjectCategory>('All')
+
+  const projects: Project[] = [
+    {
+      title: "E-Commerce Platform",
+      description: "Full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, product catalog, shopping cart, and order management.",
+      tech: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
+      demo: "https://demo.muhammad-danial-malik.dev",
+      github: "https://github.com/muhammad-danial-malik/ecommerce",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      category: "Full Stack"
+    },
+    {
+      title: "Task Management App",
+      description: "Collaborative task management application with real-time updates, drag & drop functionality, and team collaboration features.",
+      tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Socket.io"],
+      demo: "https://tasks.muhammad-danial-malik.dev",
+      github: "https://github.com/muhammad-danial-malik/task-manager",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
+      category: "Full Stack"
+    },
+    {
+      title: "Weather Dashboard",
+      description: "Interactive weather dashboard with location-based forecasts, weather maps, and historical data visualization using modern APIs.",
+      tech: ["React", "TypeScript", "Chart.js", "OpenWeather API", "PWA"],
+      demo: "https://weather.muhammad-danial-malik.dev",
+      github: "https://github.com/muhammad-danial-malik/weather-app",
+      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop",
+      category: "Frontend"
+    },
+    {
+      title: "REST API Server",
+      description: "Scalable REST API server with authentication, rate limiting, caching, and comprehensive documentation. Built with modern Node.js practices.",
+      tech: ["Node.js", "Express", "MongoDB", "Redis", "JWT", "Swagger"],
+      demo: "https://api.muhammad-danial-malik.dev/docs",
+      github: "https://github.com/muhammad-danial-malik/rest-api",
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
+      category: "Backend"
+    },
+    {
+      title: "Portfolio Website",
+      description: "Responsive portfolio website showcasing modern design principles with dark mode support and smooth animations.",
+      tech: ["React", "TypeScript", "Framer Motion", "Tailwind CSS", "Vite"],
+      demo: "https://muhammad-danial-malik.dev",
+      github: "https://github.com/muhammad-danial-malik/portfolio",
+      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
+      category: "Frontend"
+    },
+    {
+      title: "Microservices Architecture",
+      description: "Dockerized microservices architecture with API Gateway, service discovery, and distributed logging for scalable applications.",
+      tech: ["Node.js", "Docker", "Kubernetes", "Redis", "PostgreSQL", "NGINX"],
+      demo: "https://microservices.muhammad-danial-malik.dev",
+      github: "https://github.com/muhammad-danial-malik/microservices",
+      image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&h=600&fit=crop",
+      category: "Backend"
+    }
+  ]
+
+  const categories: ProjectCategory[] = ['All', 'Frontend', 'Backend', 'Full Stack']
+  
+  const filteredProjects = activeFilter === 'All' 
+    ? projects 
+    : projects.filter(project => project.category === activeFilter)
+
   return (
-    <section className="py-20 px-4 bg-black/90">
-      <h2 className="text-3xl font-bold text-center mb-12 text-purple-400">
-        NEURAL NETWORKS
-      </h2>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="group relative bg-gradient-to-br from-purple-900/10 to-cyan-900/10 p-6 rounded-lg border border-cyan-900 hover:border-cyan-400 transition-all duration-300"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-            <h3 className="text-xl font-bold mb-3 text-purple-400">
-              {project.title}
-            </h3>
-            <p className="text-cyan-300 mb-4">{project.description}</p>
-            <div className="flex gap-2">
-              {project.tech.map((t, i) => (
-                <span
-                  key={i}
-                  className="text-xs bg-purple-900/30 text-purple-300 px-2 py-1 rounded"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-            <ExternalLink className="absolute top-4 right-4 w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" size={20} />
+    <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Featured <span className="text-primary">Projects</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+            A collection of projects showcasing my skills in full-stack development, modern frameworks, and user experience design
+          </p>
+          
+          {/* Filter Buttons */}
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={activeFilter === category ? "default" : "outline"}
+                size="sm"
+                onClick={() => setActiveFilter(category)}
+                className={`transition-all duration-200 ${
+                  activeFilter === category 
+                    ? 'bg-primary text-primary-foreground' 
+                    : 'hover:bg-primary/10'
+                }`}
+              >
+                {category}
+              </Button>
+            ))}
           </div>
-        ))}
+        </motion.div>
+
+        <motion.div 
+          key={`${activeFilter}-grid`}
+          layout
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              layout
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300"
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-200">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                  {project.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-md border border-primary/20"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                
+                <div className="flex items-center justify-between">
+                  <div className="flex space-x-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      asChild
+                      className="hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                    >
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Github className="h-4 w-4 mr-2" />
+                        Code
+                      </a>
+                    </Button>
+                    <Button
+                      size="sm"
+                      asChild
+                      className="bg-primary hover:bg-primary/90"
+                    >
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                        <Globe className="h-4 w-4 mr-2" />
+                        Demo
+                      </a>
+                    </Button>
+                  </div>
+                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors duration-200" />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

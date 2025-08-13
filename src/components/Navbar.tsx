@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sun, Moon, Monitor, Code2 } from 'lucide-react'
+import { Menu, X, Sun, Moon, Code2 } from 'lucide-react'
 import { Button } from './ui/Button'
 import { useTheme } from './ui/ThemeProvider'
 import { cn } from '@/lib/utils'
@@ -58,21 +58,11 @@ const Navbar: React.FC = () => {
   }
 
   const getThemeIcon = () => {
-    switch (theme) {
-      case 'light':
-        return Sun
-      case 'dark':
-        return Moon
-      default:
-        return Monitor
-    }
+    return theme === 'light' ? Moon : Sun
   }
 
-  const cycleTheme = () => {
-    const themes: ('light' | 'dark' | 'system')[] = ['light', 'dark', 'system']
-    const currentIndex = themes.indexOf(theme)
-    const nextIndex = (currentIndex + 1) % themes.length
-    setTheme(themes[nextIndex])
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light')
   }
 
   const ThemeIcon = getThemeIcon()
@@ -111,7 +101,7 @@ const Navbar: React.FC = () => {
                 <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                DevPortfolio
+                Muhammad Danial
               </span>
             </a>
           </motion.div>
@@ -154,9 +144,9 @@ const Navbar: React.FC = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={cycleTheme}
+                onClick={toggleTheme}
                 className="relative overflow-hidden group"
-                aria-label={`Switch to ${theme === 'light' ? 'dark' : theme === 'dark' ? 'system' : 'light'} theme`}
+                aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
               >
                 <motion.div
                   key={theme}

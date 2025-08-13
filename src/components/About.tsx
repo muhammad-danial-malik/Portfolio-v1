@@ -16,7 +16,7 @@ const About: React.FC = () => {
             About <span className="text-primary">Me</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Passionate web developer with expertise in modern technologies and a love for creating exceptional digital experiences.
+            Passionate Full Stack Developer with expertise in modern technologies and a love for creating exceptional digital experiences.
           </p>
         </motion.div>
         
@@ -29,16 +29,21 @@ const About: React.FC = () => {
         >
           <div className="space-y-6">
             <p className="text-muted-foreground leading-relaxed">
-              I'm a dedicated web developer with a passion for creating beautiful, functional, and user-friendly websites and applications. With expertise in modern technologies like React, TypeScript, and Node.js, I bring ideas to life through clean, efficient code.
+              Hi! I'm Muhammad Danial, a passionate Full Stack Developer with expertise in creating beautiful, functional, and user-friendly websites and applications. With deep knowledge of modern technologies like React, TypeScript, Node.js, and cloud platforms, I bring ideas to life through clean, efficient code.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or sharing knowledge with the developer community.
+              I love tackling complex problems and building scalable solutions that make a real impact. When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or sharing knowledge with the developer community.
             </p>
           </div>
           <div className="relative">
-            <div className="w-full h-64 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg flex items-center justify-center">
-              <span className="text-4xl">👨‍💻</span>
+            <div className="w-full h-64 rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src="/profile.jpg" 
+                alt="Muhammad Danial working on a project"
+                className="w-full h-full object-cover"
+              />
             </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent rounded-lg"></div>
           </div>
         </motion.div>
       </div>
