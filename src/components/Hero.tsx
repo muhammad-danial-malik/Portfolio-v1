@@ -4,13 +4,13 @@ import { ChevronDown, Code2, Github, Linkedin, Mail } from 'lucide-react'
 
 const Hero = () => {
   return (
-    <section className="relative h-screen flex flex-col overflow-hidden">
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
       
       {/* Main Content - Perfectly centered */}
-      <div className="flex-1 flex items-center justify-center px-4 pt-16 pb-20">
+      <div className="flex-1 flex items-center justify-center px-4 pt-16 pb-8">
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           {/* Profile Image */}
           <motion.div
@@ -137,7 +137,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 cursor-pointer"
+        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 cursor-pointer"
         onClick={() => {
           const element = document.querySelector('#about')
           element?.scrollIntoView({ behavior: 'smooth' })

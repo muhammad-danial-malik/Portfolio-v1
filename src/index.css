@@ -79,6 +79,20 @@ html {
   }
 }
 
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-20px);
+  }
+}
+
+.animate-gradient {
+  animation: gradient 6s ease infinite;
+}
+
 .animate-gradient {
   animation: gradient 6s ease infinite;
 }
