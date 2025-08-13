@@ -108,7 +108,7 @@ const Projects = () => {
                 onClick={() => setActiveFilter(category)}
                 className={`transition-all duration-200 ${
                   activeFilter === category 
-                    ? 'bg-primary text-primary-foreground' 
+                    ? 'bg-primary text-[#333333]' 
                     : 'hover:bg-primary/10'
                 }`}
               >
@@ -167,10 +167,10 @@ const Projects = () => {
                       variant="outline"
                       size="sm"
                       asChild
-                      className="hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                      className="border-2 font-semibold transition-all duration-200 group"
                     >
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4 mr-2" />
+                        <Github className="h-4 w-4 mr-2 rotate-0 group-hover:rotate-12 transition-transform duration-200" />
                         Code
                       </a>
                     </Button>
