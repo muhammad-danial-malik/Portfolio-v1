@@ -16,8 +16,8 @@ const SkillsTicker = () => {
     { name: 'Vercel', icon: 'V', bgColor: 'bg-slate-900/10 border-slate-900/20', textColor: 'text-slate-900 dark:text-slate-100' },
   ]
 
-  // Duplicate skills for continuous loop
-  const duplicatedSkills = [...skills, ...skills]
+  // Duplicate skills multiple times for seamless infinite loop
+  const duplicatedSkills = [...skills, ...skills, ...skills]
 
   return (
     <div className="w-full py-8 sm:py-12 overflow-hidden relative">
@@ -43,12 +43,13 @@ const SkillsTicker = () => {
         <motion.div
           className="flex items-center gap-4 sm:gap-6 md:gap-8 whitespace-nowrap"
           animate={{
-            x: ['0%', '-50%']
+            x: ['0%', '-33.333%']
           }}
           transition={{
             duration: 40,
             repeat: Infinity,
-            ease: 'linear'
+            ease: 'linear',
+            repeatType: 'loop'
           }}
         >
           {duplicatedSkills.map((skill, index) => (

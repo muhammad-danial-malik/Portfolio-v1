@@ -116,9 +116,3 @@ link[rel="apple-touch-icon"] {
   border-radius: 50% !important;
   overflow: hidden;
 }
-
-/* Profile image styling for better SEO visibility */
-img[src*="profile"] {
-  border-radius: 50%;
-  object-fit: cover;
-}
