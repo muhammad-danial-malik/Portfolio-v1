@@ -6,13 +6,17 @@ import About from './components/About'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Footer from './components/Footer'
+import Fireflies from './components/Fireflies'
 
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
       <div className="min-h-screen bg-background text-foreground">
+        {/* Background Fireflies */}
+        <Fireflies quantity={6} />
+        
         <Navbar />
-        <main className="relative">
+        <main className="relative z-10">
           <section id="home">
             <Hero />
           </section>
