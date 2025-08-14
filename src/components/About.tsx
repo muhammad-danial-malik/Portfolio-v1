@@ -36,22 +36,22 @@ const About: React.FC = () => {
             </p>
           </div>
           <div className="relative group">
-            <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-primary/20">
+            <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-lg border border-muted/30 bg-gradient-to-br from-muted/20 to-muted/40">
               <img 
                 src="/profile.jpg" 
                 alt="Muhammad Danial - Full Stack Developer"
                 className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent"></div>
-              <div className="absolute inset-0 ring-1 ring-primary/10 rounded-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 ring-1 ring-muted/20 rounded-xl"></div>
             </div>
             
-            {/* Brand color glow effect like hero */}
-            <div className="absolute inset-0 bg-primary/5 rounded-xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
+            {/* Soft glow effect */}
+            <div className="absolute inset-0 bg-primary/10 rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
             
-            {/* Decorative elements with brand colors */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-xl group-hover:bg-primary/30 transition-colors duration-500"></div>
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/10 rounded-full blur-lg group-hover:bg-primary/20 transition-colors duration-500"></div>
+            {/* Subtle decorative elements */}
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/15 transition-colors duration-500"></div>
+            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-muted/30 rounded-full blur-lg group-hover:bg-muted/40 transition-colors duration-500"></div>
           </div>
         </motion.div>
       </div>

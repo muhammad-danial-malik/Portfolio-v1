@@ -25,6 +25,7 @@ const Firefly: React.FC<FireflyProps> = () => {
     setDuration(Math.random() * 60 + 40) // 40-100 seconds
   }, [])
 
+  const startDelay = Math.random() * 500 // 0-0.5 seconds initial delay
   const flashDelay = Math.random() * 2000 + 500 // 0.5-2.5 seconds (faster start)
   const flashDuration = Math.random() * 4000 + 3000 // 3-7 seconds (shorter cycles)
   const scale = Math.random() * 0.75 + 0.25 // 0.25-1.0
@@ -48,14 +49,15 @@ const Firefly: React.FC<FireflyProps> = () => {
         duration: duration,
         repeat: Infinity,
         repeatType: "reverse",
-        ease: "easeInOut"
+        ease: "easeInOut",
+        delay: startDelay / 1000
       }}
     >
       {/* Main firefly body - always visible */}
       <motion.div
-        className="absolute w-full h-full rounded-full bg-gray-600/30 dark:bg-gray-300/40"
+        className="absolute w-full h-full rounded-full bg-muted/30 dark:bg-muted/40"
         animate={{ 
-          opacity: [0.2, 0.3, 0.2, 0.3, 0.2]
+          opacity: [0.15, 0.25, 0.15, 0.25, 0.15]
         }}
         transition={{
           duration: flashDuration / 1000 + 2,
@@ -70,11 +72,11 @@ const Firefly: React.FC<FireflyProps> = () => {
         className="absolute w-full h-full rounded-full"
         style={{
           backgroundColor: '#FFC900',
-          boxShadow: '0 0 12px 3px rgba(255, 201, 0, 0.6), 0 0 20px 5px rgba(255, 201, 0, 0.3)'
+          boxShadow: '0 0 4px rgba(255, 201, 0, 0.4), 0 0 8px rgba(255, 201, 0, 0.2)'
         }}
         animate={{ 
-          opacity: [0, 0.1, 0.8, 0.9, 0.4, 0],
-          scale: [0.5, 0.8, 1.4, 1.2, 0.9, 0.6]
+          opacity: [0, 0.08, 0.6, 0.7, 0.3, 0],
+          scale: [0.6, 0.8, 1.2, 1.1, 0.9, 0.7]
         }}
         transition={{
           duration: flashDuration / 1000,
