@@ -107,7 +107,7 @@ const Footer = () => {
                   <Linkedin className="h-5 w-5 group-hover:scale-110 transition-transform duration-200" />
                 </a>
                 <a
-                  href="mailto:contact@muhammad-danial-malik.dev"
+                  href="mailto:daniyallatif176@gmail.com"
                   className="p-2 rounded-lg bg-muted/50 hover:bg-primary hover:text-[#333333] transition-all duration-300 group"
                   aria-label="Email Contact"
                 >
@@ -116,7 +116,7 @@ const Footer = () => {
               </div>
               <div className="pt-2">
                 <p className="text-xs text-muted-foreground">
-                  contact@muhammad-danial-malik.dev
+                  daniyallatif176@gmail.com
                 </p>
                 <p className="text-xs text-muted-foreground">
                   muhammad-danial-malik.dev

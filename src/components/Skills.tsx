@@ -39,7 +39,7 @@ const Skills = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-background/90 border border-border/50 dark:border-border/30 rounded-lg p-6 hover:shadow-lg dark:hover:shadow-xl dark:hover:shadow-primary/10 hover:bg-background hover:border-border/80 dark:hover:border-border/60 dark:hover:bg-background/100 transition-all duration-300"
+                className="bg-background/90 border border-border/50 dark:border-border/30 rounded-lg p-6 hover:shadow-lg dark:hover:shadow-xl dark:hover:shadow-primary/5 hover:bg-background hover:border-border/80 dark:hover:border-border/60 dark:hover:bg-background/100 transition-all duration-300"
               >
                 <div className="flex items-center mb-4">
                   <IconComponent className="h-8 w-8 text-primary mr-3" />

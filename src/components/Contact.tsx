@@ -7,19 +7,19 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "contact@muhammad-danial-malik.dev",
-      href: "mailto:contact@muhammad-danial-malik.dev"
+      value: "daniyallatif176@gmail.com",
+      href: "mailto:daniyallatif176@gmail.com"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+92 XXX XXXXXXX",
-      href: "tel:+92XXXXXXXXX"
+      value: "0341-1426877",
+      href: "tel:03411426877"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Pakistan",
+      value: "Punjab, Pakistan",
       href: "#"
     }
   ]
