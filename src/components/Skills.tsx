@@ -4,11 +4,11 @@ import SkillsTicker from './SkillsTicker'
 
 const Skills = () => {
   const skills = [
-    { name: "Frontend Development", icon: Globe, level: 95 },
-    { name: "React.js", icon: Code2, level: 90 },
-    { name: "TypeScript", icon: Code2, level: 88 },
+    { name: "Frontend Development", icon: Globe, level: 90 },
+    { name: "React.js", icon: Code2, level: 75 },
+    { name: "TypeScript", icon: Code2, level: 72 },
     { name: "Backend Development", icon: Server, level: 85 },
-    { name: "Database Design", icon: Database, level: 82 }
+    { name: "Database Design", icon: Database, level: 81 }
   ]
 
   return (

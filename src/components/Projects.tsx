@@ -60,10 +60,10 @@ const Projects = () => {
     {
       title: "Portfolio Website",
       description: "Responsive portfolio website showcasing modern design principles with dark mode support and smooth animations.",
-      tech: ["React", "TypeScript", "Framer Motion", "Tailwind CSS", "Vite"],
+      tech: ["React", "TypeScript","Shadcn UI" , "Tailwind CSS", "Framer Motion"],
       demo: "https://muhammad-danial-malik.dev",
-      github: "https://github.com/muhammad-danial-malik/portfolio",
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
+      github: "https://github.com/muhammad-danial-malik",
+      image: "/portfolio.png",
       category: "Frontend"
     },
     {
@@ -87,16 +87,16 @@ const Projects = () => {
   ]
 
   const categories: ProjectCategory[] = ['All', 'Frontend', 'Backend', 'Full Stack']
-  
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
+
+  const filteredProjects = activeFilter === 'All'
+    ? projects
     : projects.filter(project => project.category === activeFilter)
 
   // Determine how many projects to show
   const INITIAL_DISPLAY_COUNT = 6
   const shouldShowToggle = filteredProjects.length > INITIAL_DISPLAY_COUNT
-  const displayedProjects = isExpanded 
-    ? filteredProjects 
+  const displayedProjects = isExpanded
+    ? filteredProjects
     : filteredProjects.slice(0, INITIAL_DISPLAY_COUNT)
 
   // Auto-collapse when section goes out of view
@@ -153,7 +153,7 @@ const Projects = () => {
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 px-4 sm:px-0">
             A collection of projects showcasing my skills in full-stack development, modern frameworks, and user experience design
           </p>
-          
+
           {/* Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             {categories.map((category) => (
@@ -162,11 +162,10 @@ const Projects = () => {
                 variant={activeFilter === category ? "default" : "outline"}
                 size="sm"
                 onClick={() => setActiveFilter(category)}
-                className={`transition-all duration-200 ${
-                  activeFilter === category 
-                    ? 'bg-primary text-[#333333]' 
-                    : 'hover:bg-primary/10'
-                }`}
+                className={`transition-all duration-200 ${activeFilter === category
+                  ? 'bg-primary text-[#333333]'
+                  : 'hover:bg-primary/10'
+                  }`}
               >
                 {category}
               </Button>
@@ -174,82 +173,82 @@ const Projects = () => {
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           layout
           className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           <AnimatePresence mode="popLayout">
             {displayedProjects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              layout
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ 
-                duration: 0.3, 
-                delay: isExpanded ? (index >= INITIAL_DISPLAY_COUNT ? (index - INITIAL_DISPLAY_COUNT) * 0.05 : 0) : index * 0.05,
-                layout: { duration: 0.4, ease: "easeInOut" }
-              }}
-              className="group bg-muted/30 border border-muted/40 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:bg-muted/40"
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-200">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs bg-primary hover:bg-primary/90 text-[#333333] px-2 py-1 rounded-md font-medium shadow-sm transition-colors duration-200"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+              <motion.div
+                key={project.title}
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{
+                  duration: 0.3,
+                  delay: isExpanded ? (index >= INITIAL_DISPLAY_COUNT ? (index - INITIAL_DISPLAY_COUNT) * 0.05 : 0) : index * 0.05,
+                  layout: { duration: 0.4, ease: "easeInOut" }
+                }}
+                className="group bg-muted/30 border border-muted/40 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:bg-muted/40"
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                
-                <div className="flex items-center justify-between">
-                  <div className="flex space-x-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      asChild
-                      className="border-2 font-semibold transition-all duration-200 group"
-                    >
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4 mr-2" />
-                        Code
-                      </a>
-                    </Button>
-                    <Button
-                      size="sm"
-                      asChild
-                      className="bg-primary hover:bg-primary/90"
-                    >
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <Globe className="h-4 w-4 mr-2" />
-                        Demo
-                      </a>
-                    </Button>
+
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-200">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs bg-primary hover:bg-primary/90 text-[#333333] px-2 py-1 rounded-md font-medium shadow-sm transition-colors duration-200"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
-                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors duration-200" />
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex space-x-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        asChild
+                        className="border-2 font-semibold transition-all duration-200 group"
+                      >
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                          <Github className="h-4 w-4 mr-2" />
+                          Code
+                        </a>
+                      </Button>
+                      <Button
+                        size="sm"
+                        asChild
+                        className="bg-primary hover:bg-primary/90"
+                      >
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                          <Globe className="h-4 w-4 mr-2" />
+                          Demo
+                        </a>
+                      </Button>
+                    </div>
+                    <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors duration-200" />
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
           </AnimatePresence>
         </motion.div>
 
