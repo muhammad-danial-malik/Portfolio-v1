@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion'
-import { ExternalLink, Github, Globe } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ExternalLink, Github, Globe, ChevronDown, ChevronUp } from 'lucide-react'
 import { Button } from './ui/Button'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 type ProjectCategory = 'All' | 'Frontend' | 'Backend' | 'Full Stack'
 
@@ -17,6 +17,8 @@ interface Project {
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>('All')
+  const [isExpanded, setIsExpanded] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
 
   const projects: Project[] = [
     {
@@ -81,8 +83,53 @@ const Projects = () => {
     ? projects 
     : projects.filter(project => project.category === activeFilter)
 
+  // Determine how many projects to show
+  const INITIAL_DISPLAY_COUNT = 6
+  const shouldShowToggle = filteredProjects.length > INITIAL_DISPLAY_COUNT
+  const displayedProjects = isExpanded 
+    ? filteredProjects 
+    : filteredProjects.slice(0, INITIAL_DISPLAY_COUNT)
+
+  // Auto-collapse when section goes out of view
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current || !isExpanded) return
+
+      const rect = sectionRef.current.getBoundingClientRect()
+      const isOutOfView = rect.bottom < 0 || rect.top > window.innerHeight
+
+      if (isOutOfView) {
+        setIsExpanded(false)
+      }
+    }
+
+    // Add scroll listener with throttling for better performance
+    let ticking = false
+    const throttledScrollHandler = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll()
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', throttledScrollHandler, { passive: true })
+    return () => window.removeEventListener('scroll', throttledScrollHandler)
+  }, [isExpanded])
+
+  // Reset expansion when filter changes
+  useEffect(() => {
+    setIsExpanded(false)
+  }, [activeFilter])
+
+  const toggleExpansion = () => {
+    setIsExpanded(!isExpanded)
+  }
+
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -123,7 +170,8 @@ const Projects = () => {
           layout
           className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
-          {filteredProjects.map((project, index) => (
+          <AnimatePresence mode="wait">
+            {displayedProjects.map((project, index) => (
             <motion.div
               key={project.title}
               layout
@@ -190,6 +238,47 @@ const Projects = () => {
               </div>
             </motion.div>
           ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* See More/Less Button */}
+        {shouldShowToggle && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="flex justify-center mt-12"
+          >
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={toggleExpansion}
+              className="group hover:bg-primary hover:text-[#333333] transition-all duration-300"
+            >
+              {isExpanded ? (
+                <>
+                  <ChevronUp className="h-4 w-4 mr-2 group-hover:animate-bounce" />
+                  See Less
+                </>
+              ) : (
+                <>
+                  <ChevronDown className="h-4 w-4 mr-2 group-hover:animate-bounce" />
+                  See More ({filteredProjects.length - INITIAL_DISPLAY_COUNT} more projects)
+                </>
+              )}
+            </Button>
+          </motion.div>
+        )}
+
+        {/* Projects count indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center mt-8"
+        >
+          <p className="text-sm text-muted-foreground">
+            Showing {displayedProjects.length} of {filteredProjects.length} projects
+            {activeFilter !== 'All' && ` in ${activeFilter}`}
+          </p>
         </motion.div>
       </div>
     </section>
