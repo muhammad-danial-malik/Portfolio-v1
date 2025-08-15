@@ -74,6 +74,15 @@ const Projects = () => {
       github: "https://github.com/muhammad-danial-malik/microservices",
       image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&h=600&fit=crop",
       category: "Backend"
+    },
+    {
+      title: "Microservices Architecture",
+      description: "Dockerized microservices architecture with API Gateway, service discovery, and distributed logging for scalable applications.",
+      tech: ["Node.js", "Docker", "Kubernetes", "Redis", "PostgreSQL", "NGINX"],
+      demo: "https://microservices.muhammad-danial-malik.dev",
+      github: "https://github.com/muhammad-danial-malik/microservices",
+      image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&h=600&fit=crop",
+      category: "Backend"
     }
   ]
 
@@ -166,20 +175,23 @@ const Projects = () => {
         </motion.div>
 
         <motion.div 
-          key={`${activeFilter}-grid`}
           layout
           className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="popLayout">
             {displayedProjects.map((project, index) => (
             <motion.div
               key={project.title}
               layout
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ 
+                duration: 0.3, 
+                delay: isExpanded ? (index >= INITIAL_DISPLAY_COUNT ? (index - INITIAL_DISPLAY_COUNT) * 0.05 : 0) : index * 0.05,
+                layout: { duration: 0.4, ease: "easeInOut" }
+              }}
+              className="group bg-muted/30 border border-muted/40 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:bg-muted/40"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -202,7 +214,7 @@ const Projects = () => {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-md border border-primary/20"
+                      className="text-xs bg-primary hover:bg-primary/90 text-[#333333] px-2 py-1 rounded-md font-medium shadow-sm transition-colors duration-200"
                     >
                       {tech}
                     </span>
