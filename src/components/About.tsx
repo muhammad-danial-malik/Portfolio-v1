@@ -35,23 +35,16 @@ const About: React.FC = () => {
               I love tackling complex problems and building scalable solutions that make a real impact. When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or sharing knowledge with the developer community.
             </p>
           </div>
-          <div className="relative group">
-            <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-lg border border-muted/30 bg-gradient-to-br from-muted/20 to-muted/40">
-              <img 
-                src="/profile.jpg" 
-                alt="Muhammad Danial - Full Stack Developer"
-                className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent"></div>
-              <div className="absolute inset-0 ring-1 ring-muted/20 rounded-xl"></div>
-            </div>
+          <div className="relative flex justify-center md:justify-start">
+            {/* Background layer with equal right and bottom visibility (12px offset) */}
+            <div className="absolute top-3 left-3 w-60 h-60 sm:w-64 sm:h-64 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-primary/10 dark:bg-primary/15 rounded-xl border border-primary/10 dark:border-primary/15 shadow-sm"></div>
             
-            {/* Soft glow effect */}
-            <div className="absolute inset-0 bg-primary/10 rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-            
-            {/* Subtle decorative elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/15 transition-colors duration-500"></div>
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-muted/30 rounded-full blur-lg group-hover:bg-muted/40 transition-colors duration-500"></div>
+            {/* Square image with equal width and height (18rem on large screens) */}
+            <img 
+              src="/profile.jpg" 
+              alt="Muhammad Danial - Full Stack Developer"
+              className="relative w-60 h-60 sm:w-64 sm:h-64 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover object-center rounded-xl shadow-lg border border-border/40 bg-background transition-transform duration-500 hover:scale-105 z-10"
+            />
           </div>
         </motion.div>
       </div>
