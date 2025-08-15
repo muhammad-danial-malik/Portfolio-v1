@@ -71,7 +71,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">{item.label}</p>
-                      <p className="font-medium group-hover:text-primary transition-colors duration-200">
+                      <p className="font-medium group-hover:text-foreground dark:group-hover:text-primary transition-colors duration-200">
                         {item.value}
                       </p>
                     </div>
@@ -93,7 +93,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-muted/30 border border-muted/40 rounded-lg p-8 hover:bg-muted/35 transition-colors duration-300"
+            className="bg-transparent border border-border rounded-lg p-8 hover:bg-accent/50 transition-colors duration-300"
           >
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
             
