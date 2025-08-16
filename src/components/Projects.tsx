@@ -48,10 +48,20 @@ const Projects = () => {
       github: "https://github.com/muhammad-danial-malik/POS-for-Merchant",
       image: "/pos-backend.png",
       category: "Backend"
-    }, {
+    },
+    {
+      title: "Task Manager API",
+      description: "RESTful API for managing tasks with JWT auth, role-based access, pagination, filtering, and robust input validation.",
+      tech: ["Node.js", "Express", "MongoDB", "Mongoose", "JWT", "dotenv", "Postman"],
+      demo: "https://muhammad-danial-malik.dev",
+      github: "https://github.com/muhammad-danial-malik",
+      image: "/task-manager.png",
+      category: "Backend"
+    },
+    {
       title: "Wheelhaus",
       description: "Modular Node.js backend for managing users, vehicles, and reviews with secure auth, clean routing, and middleware support.",
-      tech: ["Node.js", "Express", "MongoDB", "JWT", "dotenv", "npm"],
+      tech: ["Node.js", "Express", "MongoDB", "Mongoose", "JWT", "dotenv", "npm"],
       demo: "https://muhammad-danial-malik.dev",
       github: "https://github.com/muhammad-danial-malik/Waheelhaush",
       image: "/wheelhaus.png",
