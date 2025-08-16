@@ -21,68 +21,59 @@ const Projects = () => {
   const sectionRef = useRef<HTMLElement>(null)
 
   const projects: Project[] = [
+
     {
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, product catalog, shopping cart, and order management.",
-      tech: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
-      demo: "https://demo.muhammad-danial-malik.dev",
-      github: "https://github.com/muhammad-danial-malik/ecommerce",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-      category: "Full Stack"
-    },
-    {
-      title: "Task Management App",
-      description: "Collaborative task management application with real-time updates, drag & drop functionality, and team collaboration features.",
-      tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Socket.io"],
-      demo: "https://tasks.muhammad-danial-malik.dev",
-      github: "https://github.com/muhammad-danial-malik/task-manager",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
-      category: "Full Stack"
-    },
-    {
-      title: "Weather Dashboard",
-      description: "Interactive weather dashboard with location-based forecasts, weather maps, and historical data visualization using modern APIs.",
-      tech: ["React", "TypeScript", "Chart.js", "OpenWeather API", "PWA"],
-      demo: "https://weather.muhammad-danial-malik.dev",
-      github: "https://github.com/muhammad-danial-malik/weather-app",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop",
+      title: "Hamdard Academy",
+      description: "Hamdard Academy is a modern landing page built for scalability. Designed to combine clean visuals with a smooth browsing experience.",
+      tech: ["Html", "CSS", "JavaScript", "CSS Animations", "Flexbox", "Grid"],
+      demo: "https://hamdard-academy.vercel.app/",
+      github: "https://github.com/muhammad-danial-malik/Hamdard-Academy",
+      image: "/academy.png",
       category: "Frontend"
-    },
-    {
-      title: "REST API Server",
-      description: "Scalable REST API server with authentication, rate limiting, caching, and comprehensive documentation. Built with modern Node.js practices.",
-      tech: ["Node.js", "Express", "MongoDB", "Redis", "JWT", "Swagger"],
-      demo: "https://api.muhammad-danial-malik.dev/docs",
-      github: "https://github.com/muhammad-danial-malik/rest-api",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
-      category: "Backend"
     },
     {
       title: "Portfolio Website",
       description: "Responsive portfolio website showcasing modern design principles with dark mode support and smooth animations.",
-      tech: ["React", "TypeScript","Shadcn UI" , "Tailwind CSS", "Framer Motion"],
+      tech: ["React", "TypeScript", "Shadcn UI", "Tailwind CSS", "Framer Motion"],
       demo: "https://muhammad-danial-malik.dev",
       github: "https://github.com/muhammad-danial-malik",
       image: "/portfolio.png",
       category: "Frontend"
     },
     {
-      title: "Microservices Architecture",
-      description: "Dockerized microservices architecture with API Gateway, service discovery, and distributed logging for scalable applications.",
-      tech: ["Node.js", "Docker", "Kubernetes", "Redis", "PostgreSQL", "NGINX"],
-      demo: "https://microservices.muhammad-danial-malik.dev",
-      github: "https://github.com/muhammad-danial-malik/microservices",
-      image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&h=600&fit=crop",
+      title: "POS System Backend",
+      description: "Modular backend system with authentication and product management, built for efficient POS operations.",
+      tech: ["Node.js", "Express", "MongoDB", "JWT", "Multer", "Cloudinary"],
+      demo: "https://fk-merchant-pos.vercel.app/",
+      github: "https://github.com/muhammad-danial-malik/POS-for-Merchant",
+      image: "/pos-backend.png",
+      category: "Backend"
+    }, {
+      title: "Wheelhaus",
+      description: "Modular Node.js backend for managing users, vehicles, and reviews with secure auth, clean routing, and middleware support.",
+      tech: ["Node.js", "Express", "MongoDB", "JWT", "dotenv", "npm"],
+      demo: "https://muhammad-danial-malik.dev",
+      github: "https://github.com/muhammad-danial-malik/Waheelhaush",
+      image: "/wheelhaus.png",
       category: "Backend"
     },
     {
-      title: "Microservices Architecture",
-      description: "Dockerized microservices architecture with API Gateway, service discovery, and distributed logging for scalable applications.",
-      tech: ["Node.js", "Docker", "Kubernetes", "Redis", "PostgreSQL", "NGINX"],
-      demo: "https://microservices.muhammad-danial-malik.dev",
-      github: "https://github.com/muhammad-danial-malik/microservices",
-      image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&h=600&fit=crop",
-      category: "Backend"
+      title: "Auth Portal",
+      description: "User authentication portal built with JWT and cookies. Handles registration, login, and API access through secure routes.",
+      tech: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "MongoDB", "JWT"],
+      demo: "https://muhammad-danial-malik.dev",
+      github: "https://github.com/muhammad-danial-malik/Auth-Portal",
+      image: "/auth-portal.png",
+      category: "Full Stack"
+    },
+    {
+      title: "Airbnb Clone v1",
+      description: "Airbnb-inspired full-stack web app built with modern tools. Features dynamic property listings, user auth, and cloud-based image handling.",
+      tech: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "MongoDB", "JWT", "Cloudinary"],
+      demo: "https://fk-airbnb.vercel.app",
+      github: "https://github.com/muhammad-danial-malik/Air-bnb-Clone",
+      image: "/air-bnb.png",
+      category: "Full Stack"
     }
   ]
 
